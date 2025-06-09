@@ -1,0 +1,208 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  3.0.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+blade1
+{
+    type            actuatorFlexibleLineSource;
+    active          on;
+
+    actuatorFlexibleLineSourceCoeffs
+    {
+        fieldNames          (U);
+        selectionMode       all;    // cellSet, points, cellZone
+        cellSet             c1;       // cellSet name
+        freeStreamVelocity  (1 0 0);
+        nElements           24;
+        writePerf           false;
+	writeVTK	    true;
+        writeElementPerf    false;
+        endEffects          on;
+
+        elementGeometry // Will be interpolated linearly per nElements
+        ( // point spanDir chordLength chordRefDir chordMount pitch mats 2x1 sects A        Iz       Iy          J        alpha 5x1 restraints 6x1 
+	  ((15.0 0. 0.4) (0  1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 3.E-9 5.E-9  0.02    0) (1 1 1  1 1 1))
+          ((15.0 0.4 0.4) (0 1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 3.E-9 5.E-9 0.02    0) (0 0 0 0 0 0))
+        );
+
+        elementProfiles (seagrass); // Will be distributed evenly
+        profileData
+        {
+            seagrass
+            {
+                data
+                ( // alpha C_l C_d
+                (-180 0 1.1)
+		(180 0 1.1)
+                );
+            }
+        }
+    }
+}
+
+blade2
+{
+    type            actuatorFlexibleLineSource;
+    active          on;
+
+    actuatorFlexibleLineSourceCoeffs
+    {
+        fieldNames          (U);
+        selectionMode       all;    // cellSet, points, cellZone
+        cellSet             c2;       // cellSet name
+        freeStreamVelocity  (1 0 0);
+        nElements           24;
+        writePerf           false;
+	writeVTK	    true;
+        writeElementPerf    false;
+        endEffects          on;
+
+        elementGeometry // Will be interpolated linearly per nElements
+        ( // point spanDir chordLength chordRefDir chordMount pitch mats 2x1 sects A        Iz       Iy          J        alpha 5x1 restraints 6x1 
+	  ((16 0. 0.4) (0  1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 3.E-9 5.E-9   0.02    0) (1 1 1  1 1 1))
+          ((16 0.4 0.4) (0 1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 3.E-9 5.E-9 0.02    0) (0 0 0 0 0 0))
+        );
+
+        elementProfiles (seagrass); // Will be distributed evenly
+        profileData
+        {
+            seagrass
+            {
+                data
+                ( // alpha C_l C_d
+                (-180 0 1.1)
+		(180 0 1.1)
+                );
+            }
+        }
+    }    
+    }
+    
+    
+    
+blade3
+{
+    type            actuatorFlexibleLineSource;
+    active          on;
+
+    actuatorFlexibleLineSourceCoeffs
+    {
+        fieldNames          (U);
+        selectionMode       all;    // cellSet, points, cellZone
+        cellSet             c3;       // cellSet name
+        freeStreamVelocity  (1 0 0);
+        nElements           24;
+        writePerf           false;
+	writeVTK	    true;
+        writeElementPerf    false;
+        endEffects          on;
+
+        elementGeometry // Will be interpolated linearly per nElements
+        ( // point spanDir chordLength chordRefDir chordMount pitch mats 2x1 sects A        Iz       Iy          J        alpha 5x1 restraints 6x1 
+	  ((17 0. 0.4) (0  1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 3.E-9 5.E-9   0.02    0) (1 1 1  1 1 1))
+          ((17 0.4 0.4) (0 1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 5.E-9 5.E-9 0.02    0) (0 0 0 0 0 0))
+        );
+
+        elementProfiles (seagrass); // Will be distributed evenly
+        profileData
+        {
+            seagrass
+            {
+                data
+                ( // alpha C_l C_d
+                (-180 0 1.1)
+		(180 0 1.1)
+                );
+            }
+        }
+    }    
+    }
+blade4
+{
+    type            actuatorFlexibleLineSource;
+    active          on;
+
+    actuatorFlexibleLineSourceCoeffs
+    {
+        fieldNames          (U);
+        selectionMode       all;    // cellSet, points, cellZone
+        cellSet             c4;       // cellSet name
+        freeStreamVelocity  (1 0 0);
+        nElements           24;
+        writePerf           false;
+	writeVTK	    true;
+        writeElementPerf    false;
+        endEffects          on;
+
+        elementGeometry // Will be interpolated linearly per nElements
+        ( // point spanDir chordLength chordRefDir chordMount pitch mats 2x1 sects A        Iz       Iy          J        alpha 5x1 restraints 6x1 
+	  ((18 0. 0.4) (0  1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 3.E-9 5.E-9   0.02    0) (1 1 1  1 1 1))
+          ((18 0.4 0.4) (0 1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 3.E-9 5.E-9 0.02    0) (0 0 0 0 0 0))
+        );
+
+        elementProfiles (seagrass); // Will be distributed evenly
+        profileData
+        {
+            seagrass
+            {
+                data
+                ( // alpha C_l C_d
+                (-180 0 1.1)
+		(180 0 1.1)
+                );
+            }
+        }
+    }    
+    }
+blade5
+{
+    type            actuatorFlexibleLineSource;
+    active          on;
+
+    actuatorFlexibleLineSourceCoeffs
+    {
+        fieldNames          (U);
+        selectionMode       all;    // cellSet, points, cellZone
+        cellSet             c5;       // cellSet name
+        freeStreamVelocity  (1 0 0);
+        nElements           24;
+        writePerf           false;
+	writeVTK	    true;
+        writeElementPerf    false;
+        endEffects          on;
+
+        elementGeometry // Will be interpolated linearly per nElements
+        ( // point spanDir chordLength chordRefDir chordMount pitch mats 2x1 sects A        Iz       Iy          J        alpha 5x1 restraints 6x1 
+	  ((19 0. 0.4) (0  1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 3.E-9 5.E-9  0.02    0) (1 1 1  1 1 1))
+          ((19 0.4 0.4) (0 1 0) (0.10) (-1 0 0) (0.25) (0.0) (10E4  0.2) (0.003 3.E-9 5.E-9 0.02    0) (0 0 0 0 0 0))
+        );
+
+        elementProfiles (seagrass); // Will be distributed evenly
+        profileData
+        {
+            seagrass
+            {
+                data
+                ( // alpha C_l C_d
+                (-180 0 1.1)
+		(180 0 1.1)
+                );
+            }
+        }
+    }    
+    }
+    
+// ************************************************************************* //

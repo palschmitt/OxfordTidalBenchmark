@@ -1,0 +1,28 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Set application name
+application=$(getApplication)
+
+cp 0.org 0 -rv
+runApplication blockMesh
+runApplication snappyHexMesh -overwrite
+
+runApplication createPatch -overwrite
+
+
+runApplication setFields
+runApplication topoSet -dict system/topoSetDict.fvOptions
+touch case.foam
+
+
+#runApplication potentialFreeSurfaceFoamsrc
+
+runApplication decomposePar
+for i in processor*; do cp constant/waveDict $i/constant/  ; done
+runParallel $application
+
+#------------------------------------------------------------------------------

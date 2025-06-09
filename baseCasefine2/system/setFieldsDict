@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+defaultFieldValues
+(
+    volScalarFieldValue relax 0
+    volScalarFieldValue CurrentRelax 0
+    volScalarFieldValue sand 0
+);
+
+regions
+(
+    boxToCell
+    {
+        box (0.0001 -999  -999) (0.4999 999 999 );
+        fieldValues
+        (
+            volScalarFieldValue CurrentRelax 1
+        );
+    }
+    boxToCell
+    {
+        box (0.5 -999  -999) (1.5 999 999 );
+        fieldValues
+        (
+            volScalarFieldValue sand 5
+        );
+    }
+    boxToCell
+    {
+        box (1.5 -999  -999) (3 999 999 );
+        fieldValues
+        (
+            volScalarFieldValue sand 3
+        );
+    }
+    boxToCell
+    {
+        box (3 -999  -999) (5 999 999 );
+        fieldValues
+        (
+            volScalarFieldValue sand 1
+        );
+    }
+    boxToCell
+    {
+        box (15 -999  -999) (17 999 999 );
+        fieldValues
+        (
+            volScalarFieldValue sand 1
+        );
+    }
+    boxToCell
+    {
+        box (17 -999  -999) (18 999 999 );
+        fieldValues
+        (
+            volScalarFieldValue sand 3
+        );
+    }
+    boxToCell
+    {
+        box (18 -999  -999) (20 999 999 );
+        fieldValues
+        (
+            volScalarFieldValue sand 5
+        );
+    }
+ );
+
+
+// ************************************************************************* //
